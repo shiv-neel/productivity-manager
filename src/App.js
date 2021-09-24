@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import {React, useState} from 'react'
+
+import './App.css'
+import TitleBlock from './components/TitleBlock'
+import NewTask from './components/NewTask'
+import Tasks from './components/Tasks'
+
+const SAMPLE_TASKS = [
+  {
+    title: 'Laundry',
+    project: 'Chores',
+    emoji: '🧺'
+  },
+  {
+    title: 'Homework',
+    project: 'School',
+    emoji: '📝'
+  },
+  {
+    title: 'Leg Day',
+    project: 'Health',
+    emoji: '❤️'
+  },
+  {
+    title: 'Making Dinner',
+    project: 'Chores',
+    emoji: '🧺'
+  }
+]
 
 function App() {
+  const [tasks, setTasks] = useState(SAMPLE_TASKS)
+  
+  const addTaskHandler = (task) => {
+    setTasks(prevTasks => {
+      return [task, ...prevTasks]
+    })
+    console.log(task)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TitleBlock/>
+      <NewTask onAddTask={addTaskHandler}/>
+      <Tasks items={tasks}/>
     </div>
+    
   );
 }
 
-export default App;
+export default App

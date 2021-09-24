@@ -1,0 +1,37 @@
+.task {
+    background-color: white;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    max-width: 80%;
+    margin: 5px auto;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 2px;
+}
+
+.emoji {
+    display: inline-block;
+    width: 10%;
+    margin: 0 auto;
+    justify-content: flex-start;
+    text-align: center;
+
+    font-size: 1.5rem;
+}
+.task-info {
+    display: inline-block;
+    width: 85%;
+    text-align: start;
+    justify-content: flex-start;
+}
+
+.task__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.task__project {
+    font-size: 1rem;
+    font-weight: 300;
+}
