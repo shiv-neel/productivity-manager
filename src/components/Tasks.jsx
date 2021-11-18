@@ -4,9 +4,13 @@ import Task from './Task'
 
 const Tasks = (props) => {
     
+    const sortedTasks = props.items.sort((a, b) => {
+        return b.id - a.id
+    })
+    
     return (
         <div>
-            {props.items.map(
+            {sortedTasks.map(
                     (task) => (<Task 
                             id={task.id}
                             title={task.title} 
