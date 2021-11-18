@@ -9,7 +9,6 @@ const Task = (props) => {
                 <div className='task__project'>{props.project}</div>
             </div>
             
-            
         </div>
     )
 }

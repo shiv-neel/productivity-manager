@@ -1,3 +1,8 @@
+form {
+    width: 600px;
+    margin: 0 auto
+}
+
 input select {
     display: flex;
     justify-content: center;
@@ -10,10 +15,11 @@ input, select {
     height: 2rem;
     width: 65%;  
     border-radius: 0.5rem;  
-    border: none;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
-
+    border: 1px solid rgba(128, 218, 213);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    background-color: rgba(128, 218, 213, 0.2);
     text-align: center;
+    font-family: inherit;
 }
 
 .duration {

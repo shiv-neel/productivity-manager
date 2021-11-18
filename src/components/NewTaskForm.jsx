@@ -6,28 +6,46 @@ const NewTaskForm = (props) => {
     //    [property, function that updates state] = useState('')
     const [enteredTask, setEnteredTask] = useState('')
     const [enteredProject, setEnteredProject] = useState('')
-       
-    const taskChangeHandler = (event) => {
-        setEnteredTask(event.target.value)
+    const [emoji, setEmoji] = useState('')
+    const taskChangeHandler = (e) => {
+        setEnteredTask(e.target.value)
     }
 
-    const projectChangeHandler = (event) => {
-        setEnteredProject(event.target.value)
-    }
-
-    const submitHandler = (event) => {
-        event.preventDefault()
-        const taskData = {
-            task: enteredTask,
-            project: enteredProject
-        }
-
-        props.onSaveTaskData(taskData)
-        setEnteredTask('')
-        setEnteredProject('')
+    const projectChangeHandler = (e) => {
+        setEnteredProject(e.target.value)
         
     }
 
+    const whichEmoji = (proj) => {
+        var emo = ''
+        switch (proj) {
+            case 'General': 
+                emo = '📁'
+                break
+            case 'Chores':
+                emo = '🧺'
+                break
+            case 'Schoolwork':
+                emo = '📝'
+                break
+            case 'Health':
+                emo = '❤️'
+                break
+            case 'Development':
+                emo = '⬆️'
+        }
+        return emo
+    }
+    const submitHandler = (e) => {
+        e.preventDefault()
+        const newTask = {
+            id: props.tasks.length + 1,
+            title: enteredTask,
+            project: enteredProject,
+            emoji: whichEmoji(enteredProject)
+        }
+        props.setTasks(props.tasks.concat(newTask))
+    }
     return (
         <div>        
             <form onSubmit={submitHandler}>
